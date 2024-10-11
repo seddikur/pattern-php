@@ -28,7 +28,7 @@ final class Connection
      */
     public static function getInstance(): self
     {
-        if (self::$instance === null){
+        if (self::$instance === null) {
             self::$instance = new self();
         }
         return self::$instance;
@@ -36,20 +36,34 @@ final class Connection
     }
 
     /**
-     * Запретить клонирование (для этого метод оставим пустой)
-     * @param string $name
-     * @param array $arguments
+     * Запретить клонирование (для этого метод private)
      * @return void
      */
-    public function __call(string $name, array $arguments)
+    public function __clone(): void
     {
-        // TODO: Implement __call() method.
     }
 
 
+    /**
+     * Конструктор закрыт
+     */
+    private function __construct()
+    {
+    }
+
+    /**
+     * Сериализация запрещена
+     */
+    private  function __sleep(): array
+   {
+   }
+
+    /**
+     * Десериализация запрещена
+     * @return void
+     */
     public function __wakeup(): void
     {
-        // TODO: Implement __wakeup() method.
     }
 
 }
@@ -57,5 +71,8 @@ final class Connection
 $connection = Connection::getInstance();
 $connection::setName('PHP');
 
+
 $connection2 = Connection::getInstance();
+$connection2::setName('PHP2');
+var_dump($connection::getName());
 var_dump($connection2::getName());

@@ -2,4 +2,4 @@
 
 ## Содержание
 ### Порождающие
-#### [1. Одиночка (singleton)](singleton.php)
+#### [1. Одиночка (singleton)](creational/singleton.php)

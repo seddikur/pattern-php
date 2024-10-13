@@ -14,7 +14,7 @@ class Boat implements Transport
 {
     public function move($product): void
     {
-        echo $product . 'едет по воде' . PHP_EOL;
+        echo $product . ' плывет по воде' . PHP_EOL;
     }
 }
 
@@ -23,7 +23,7 @@ class Car implements Transport
 {
     public function move($product): void
     {
-        echo $product . 'едет по дороги' . PHP_EOL;
+        echo $product . ' едет по дороги' . PHP_EOL;
     }
 }
 
@@ -48,8 +48,7 @@ class TransportFactory implements FactoryMethod
             case static::WATER_TRANSPORT:
                 return new Boat();
         }
-
-        return null;
+//        return null;
     }
 
     private function getOptimalWayForProduct($product)
